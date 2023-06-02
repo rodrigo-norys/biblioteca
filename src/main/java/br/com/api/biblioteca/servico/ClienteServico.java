@@ -18,30 +18,56 @@ public class ClienteServico {
     @Autowired
     private RespostaModelo respostaModelo;
 
-    // Método para listar
+    // Método para listar clientes.
     public Iterable<ClienteModelo> listar() {
         return clienteRepositorio.findAll();
     }
 
-    // Método para cadastrar
+    // Método para cadastrar clientes.
     public ResponseEntity<?> cadastrar(ClienteModelo clienteModelo) {
         if (clienteModelo.getNome().equals("")) {
-            respostaModelo.setMensagem("O campo nome precisa ser preenchido!");
-            return new ResponseEntity<RespostaModelo>(respostaModelo, HttpStatus.BAD_REQUEST);
+            respostaModelo.setMensagem("O nome precisa ser preenchido!");
         } else if (clienteModelo.getSobrenome().equals("")) {
-            respostaModelo.setMensagem("O campo sobrenome precisa ser preenchido!");
-            return new ResponseEntity<RespostaModelo>(respostaModelo, HttpStatus.BAD_REQUEST);
+            respostaModelo.setMensagem("O sobrenome precisa ser preenchido!");
         } else if (clienteModelo.getTelefone() == 0) {
-            respostaModelo.setMensagem("O campo telefone precisa ser preenchido!");
-            return new ResponseEntity<RespostaModelo>(respostaModelo, HttpStatus.BAD_REQUEST);
+            respostaModelo.setMensagem("O telefone precisa ser preenchido!");
         } else if (clienteModelo.getBairro().equals("")) {
-            respostaModelo.setMensagem("O campo bairro precisa ser preenchido!");
-            return new ResponseEntity<RespostaModelo>(respostaModelo, HttpStatus.BAD_REQUEST);
+            respostaModelo.setMensagem("O bairro precisa ser preenchido!");
         } else if (clienteModelo.getRua().equals("")) {
-            respostaModelo.setMensagem("O nome rua precisa ser preenchido!");
-            return new ResponseEntity<RespostaModelo>(respostaModelo, HttpStatus.BAD_REQUEST);
+            respostaModelo.setMensagem("A rua precisa ser preenchida!");
         } else {
             return new ResponseEntity<ClienteModelo>(clienteRepositorio.save(clienteModelo), HttpStatus.CREATED);
+        }
+        return new ResponseEntity<RespostaModelo>(respostaModelo, HttpStatus.BAD_REQUEST);
+    }
+
+    // Método para alterar clientes.
+    public ResponseEntity<?> alterar(ClienteModelo clienteModelo) {
+        if (clienteModelo.getNome().equals("")) {
+            respostaModelo.setMensagem("O nome precisa ser preenchido!");
+        } else if (clienteModelo.getSobrenome().equals("")) {
+            respostaModelo.setMensagem("O sobrenome precisa ser preenchido!");
+        } else if (clienteModelo.getTelefone() == 0) {
+            respostaModelo.setMensagem("O telefone precisa ser preenchido!");
+        } else if (clienteModelo.getBairro().equals("")) {
+            respostaModelo.setMensagem("O bairro precisa ser preenchido!");
+        } else if (clienteModelo.getRua().equals("")) {
+            respostaModelo.setMensagem("A rua precisa ser preenchida!");
+        } else {
+            return new ResponseEntity<ClienteModelo>(clienteRepositorio.save(clienteModelo), HttpStatus.OK);
+        }
+        return new ResponseEntity<RespostaModelo>(respostaModelo, HttpStatus.BAD_REQUEST);
+    }
+
+    // Método para remover clientes.
+    public ResponseEntity<?> remover(long id_cliente) {
+        if (clienteRepositorio.existsById(id_cliente)) {
+            clienteRepositorio.deleteById(id_cliente);
+            respostaModelo.setMensagem("O cliente foi removido com sucesso!");
+            return new ResponseEntity<RespostaModelo>(respostaModelo, HttpStatus.OK);
+        } else {
+            respostaModelo.setMensagem("É necessário que informe um ID válido!");
+            return new ResponseEntity<RespostaModelo>(respostaModelo, HttpStatus.BAD_REQUEST);
         }
     }
 }
