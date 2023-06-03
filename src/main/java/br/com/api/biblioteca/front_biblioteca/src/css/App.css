@@ -1,56 +1,20 @@
-* {
-  box-sizing: border-box;
+/* Input Texts */
+form div.input-group mb-3 {
+  width: 500px;
+  margin: 30px auto;
+  text-align: center;
 }
 
-body {
-  font-family: sans-serif;
-  margin: 20px;
-  padding: 0;
+/* Input Buttons */
+form {
+  margin: 30px auto;
+  text-align: center;
 }
 
-h1 {
-  margin-top: 0;
-  font-size: 22px;
+form input {
+  margin-bottom: 5px;
 }
 
-h2 {
-  margin-top: 0;
-  font-size: 20px;
-}
-
-h3 {
-  margin-top: 0;
-  font-size: 18px;
-}
-
-h4 {
-  margin-top: 0;
-  font-size: 16px;
-}
-
-h5 {
-  margin-top: 0;
-  font-size: 14px;
-}
-
-h6 {
-  margin-top: 0;
-  font-size: 12px;
-}
-
-code {
-  font-size: 1.2em;
-}
-
-ul {
-  padding-left: 20px;
-}
-
-button {
-  margin-right: 10px
-}
-
-b {
-  display: inline-block;
+form input[type='button'] {
   margin-right: 10px;
 }

@@ -3,7 +3,7 @@ import TabelaClientes from "./TabelaClientes";
 
 export default function AbaClientes() {
     return (
-        <div className="AbaClientes">
+        <div>
             <FormularioClientes />
             <TabelaClientes />
         </div>
