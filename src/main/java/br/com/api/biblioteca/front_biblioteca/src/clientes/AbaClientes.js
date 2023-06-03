@@ -1,7 +1,11 @@
+import FormularioClientes from "./FormularioClientes";
+import TabelaClientes from "./TabelaClientes";
+
 export default function AbaClientes() {
     return (
-        <div>
-            <h1>Clientes</h1>
+        <div className="AbaClientes">
+            <FormularioClientes />
+            <TabelaClientes />
         </div>
     );
 }
