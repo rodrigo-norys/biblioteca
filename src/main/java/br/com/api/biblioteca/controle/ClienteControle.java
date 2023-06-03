@@ -27,26 +27,26 @@ public class ClienteControle {
     }
 
     // Listar clientes.
-    @GetMapping("/listar")
-    public Iterable<ClienteModelo> listar() {
-        return clienteServico.listar();
+    @GetMapping("/listarClientes")
+    public Iterable<ClienteModelo> listarClientes() {
+        return clienteServico.listarClientes();
     }
 
     // Cadastrar clientes.
-    @PostMapping("/cadastrar")
-    public ResponseEntity<?> cadastrar(@RequestBody ClienteModelo clienteModelo) {
-        return clienteServico.cadastrar(clienteModelo);
+    @PostMapping("/cadastrarClientes")
+    public ResponseEntity<?> cadastrarClientes(@RequestBody ClienteModelo clienteModelo) {
+        return clienteServico.cadastrarClientes(clienteModelo);
     }
 
     // Alterar clientes.
-    @PostMapping("/alterar")
-    public ResponseEntity<?> alterar(@RequestBody ClienteModelo clienteModelo) {
-        return clienteServico.alterar(clienteModelo);
+    @PostMapping("/alterarClientes")
+    public ResponseEntity<?> alterarClientes(@RequestBody ClienteModelo clienteModelo) {
+        return clienteServico.alterarClientes(clienteModelo);
     }
 
     // Remover clientes.
-    @DeleteMapping("/remover/{id_cliente}")
-    public ResponseEntity<?> remover(@PathVariable long id_cliente) {
-        return clienteServico.remover(id_cliente);
+    @DeleteMapping("/removerClientes/{id_cliente}")
+    public ResponseEntity<?> removerClientes(@PathVariable long id_cliente) {
+        return clienteServico.removerClientes(id_cliente);
     }
 }

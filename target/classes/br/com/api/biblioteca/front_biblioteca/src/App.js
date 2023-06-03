@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useTransition } from 'react';
+import Abas from './Abas.js';
+import AbaClientes from './clientes/AbaClientes.js';
+import AbaPedidos from './pedidos/AbaPedidos.js';
 
-function App() {
+export default function AbaContainer() {
+  const [pendente, iniciarTransicao] = useTransition();
+  const [aba, setAba] = useState('abaClientes');
+
+  {/* Função de transição das abas */ }
+  function selecionarAba(proximaAba) {
+    iniciarTransicao(() => {
+      setAba(proximaAba);
+    });
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {/* Aba dos clientes */}
+      <Abas
+        isActive={aba === 'abaClientes'}
+        onClick={() => selecionarAba('abaClientes')}
+      >
+        Clientes
+      </Abas>
+      {/* Aba dos pedidos */}
+      <Abas
+        isActive={aba === 'abaPedidos'}
+        onClick={() => selecionarAba('abaPedidos')}
+      >
+        Pedidos
+      </Abas>
+      <hr />
+      {aba === 'abaClientes' && <AbaClientes />}
+      {aba === 'abaPedidos' && <AbaPedidos />}
+    </>
   );
 }
-
-export default App;

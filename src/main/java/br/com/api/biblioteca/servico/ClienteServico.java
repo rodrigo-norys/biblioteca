@@ -19,12 +19,12 @@ public class ClienteServico {
     private RespostaModelo respostaModelo;
 
     // Método para listar clientes.
-    public Iterable<ClienteModelo> listar() {
+    public Iterable<ClienteModelo> listarClientes() {
         return clienteRepositorio.findAll();
     }
 
     // Método para cadastrar clientes.
-    public ResponseEntity<?> cadastrar(ClienteModelo clienteModelo) {
+    public ResponseEntity<?> cadastrarClientes(ClienteModelo clienteModelo) {
         if (clienteModelo.getNome().equals("")) {
             respostaModelo.setMensagem("O nome precisa ser preenchido!");
         } else if (clienteModelo.getSobrenome().equals("")) {
@@ -42,7 +42,7 @@ public class ClienteServico {
     }
 
     // Método para alterar clientes.
-    public ResponseEntity<?> alterar(ClienteModelo clienteModelo) {
+    public ResponseEntity<?> alterarClientes(ClienteModelo clienteModelo) {
         if (clienteModelo.getNome().equals("")) {
             respostaModelo.setMensagem("O nome precisa ser preenchido!");
         } else if (clienteModelo.getSobrenome().equals("")) {
@@ -60,7 +60,7 @@ public class ClienteServico {
     }
 
     // Método para remover clientes.
-    public ResponseEntity<?> remover(long id_cliente) {
+    public ResponseEntity<?> removerClientes(long id_cliente) {
         if (clienteRepositorio.existsById(id_cliente)) {
             clienteRepositorio.deleteById(id_cliente);
             respostaModelo.setMensagem("O cliente foi removido com sucesso!");
