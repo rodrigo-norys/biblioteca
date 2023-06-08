@@ -1,4 +1,5 @@
 import { useState, useTransition } from 'react';
+import './css/App.css';
 import Abas from './Abas.js';
 import AbaClientes from './clientes/AbaClientes.js';
 import AbaPedidos from './pedidos/AbaPedidos.js';

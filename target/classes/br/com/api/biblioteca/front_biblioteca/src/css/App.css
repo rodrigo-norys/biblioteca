@@ -1,0 +1,20 @@
+/* Input Texts */
+form div.input-group mb-3 {
+  width: 500px;
+  margin: 30px auto;
+  text-align: center;
+}
+
+/* Input Buttons */
+form {
+  margin: 30px auto;
+  text-align: center;
+}
+
+form input {
+  margin-bottom: 5px;
+}
+
+form input[type='button'] {
+  margin-right: 10px;
+}

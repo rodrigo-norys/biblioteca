@@ -1,5 +1,5 @@
 export default function Abas({ children, isActive, onClick }) {
-    // Se estiver ativo irá mostrar selecionar e mostrar a aba ativa.
+    // Se estiver ativo irá selecionar e mostrar a aba ativa.
     if (isActive) {
         return <b>{children}</b>
     }
