@@ -31,6 +31,8 @@ public class ClienteServico {
             respostaModelo.setMensagem("O sobrenome precisa ser preenchido!");
         } else if (clienteModelo.getTelefone() == 0) {
             respostaModelo.setMensagem("O telefone precisa ser preenchido!");
+        } else if (clienteModelo.getTelefone() == 000000) {
+            respostaModelo.setMensagem("Digite apenas números nesse campo!");
         } else if (clienteModelo.getBairro().equals("")) {
             respostaModelo.setMensagem("O bairro precisa ser preenchido!");
         } else if (clienteModelo.getRua().equals("")) {

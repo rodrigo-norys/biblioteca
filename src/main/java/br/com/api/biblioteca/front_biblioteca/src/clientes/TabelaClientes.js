@@ -15,14 +15,14 @@ export default function TabelaClientes({ clientes }) {
 
             <tbody>
                 {
-                    clientes.map((objetoCliente, indiceCliente) => (
+                    clientes.map((Cliente, indiceCliente) => (
                         <tr key={indiceCliente}>
                             <td>{indiceCliente + 1}</td>
-                            <td>{objetoCliente.nome}</td>
-                            <td>{objetoCliente.sobrenome}</td>
-                            <td>{objetoCliente.telefone}</td>
-                            <td>{objetoCliente.bairro}</td>
-                            <td>{objetoCliente.rua}</td>
+                            <td>{Cliente.nome}</td>
+                            <td>{Cliente.sobrenome}</td>
+                            <td>{Cliente.telefone}</td>
+                            <td>{Cliente.bairro}</td>
+                            <td>{Cliente.rua}</td>
                             <td><button className='btn btn-success'>Selecionar</button></td>
                         </tr>
                     ))

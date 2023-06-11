@@ -74,3 +74,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - Classe formulário e tabela.
 - State da visibilidade dos botões.
 - Trazer os dados da base de dados com o fetch().
+- Criar o objeto cliente.
+- State do cliente.
+- Trazer dados do formulário.
+- Cadastrar o cliente
