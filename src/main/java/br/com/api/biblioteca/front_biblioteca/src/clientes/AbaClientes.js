@@ -9,7 +9,7 @@ export default function AbaClientes() {
         id_cliente: 0,
         nome: '',
         sobrenome: '',
-        telefone: 0,
+        telefone: '',
         bairro: '',
         rua: ''
     }
@@ -45,14 +45,18 @@ export default function AbaClientes() {
         })
             .then(retorno => retorno.json())
             .then(retorno_convertido => {
-                console.log(retorno_convertido);
+                if (retorno_convertido.mensagem) {
+                    alert(retorno_convertido.mensagem);
+                } else {
+                    setClientes([...clientes, retorno_convertido]);
+                }
             })
     }
 
     return (
         <div>
             <p>{JSON.stringify(objetoCliente)}</p>
-            <FormularioClientes botaoCadastrar={botaoCadastrar} aoDigitar={aoDigitar} cadastrarCliente={cadastrarCliente}/>
+            <FormularioClientes botaoCadastrar={botaoCadastrar} cadastrarCliente={cadastrarCliente} aoDigitar={aoDigitar} />
             <TabelaClientes clientes={clientes} />
         </div>
     );

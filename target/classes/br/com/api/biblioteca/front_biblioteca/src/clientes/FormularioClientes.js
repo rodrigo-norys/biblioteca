@@ -1,10 +1,11 @@
 export default function FormularioClientes({ botaoCadastrar, aoDigitar, cadastrarCliente }) {
+
     return (
         <form>
             <div className='input-group mb-3'>
                 <input type='text' placeholder='Nome' onChange={aoDigitar} name='nome' className='form-control' />
                 <input type='text' placeholder='Sobrenome' onChange={aoDigitar} name='sobrenome' className='form-control' />
-                <input type='text' placeholder='Telefone' onChange={aoDigitar} name='telefone' className='form-control' />
+                <input type='text' placeholder='Telefone' onChange={aoDigitar} name='telefone' maxLength={11} defaultValue="Some initial value" className='form-control' />
                 <input type='text' placeholder='Bairro' onChange={aoDigitar} name='bairro' className='form-control' />
                 <input type='text' placeholder='Rua' onChange={aoDigitar} name='rua' className='form-control' />
             </div>

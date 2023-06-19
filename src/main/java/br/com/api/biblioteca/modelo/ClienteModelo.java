@@ -22,7 +22,7 @@ public class ClienteModelo {
     private String nome;
     @Column(columnDefinition = "VARCHAR(15)")
     private String sobrenome;
-    private Integer telefone;
+    private String telefone;
     @Column(columnDefinition = "VARCHAR(25)")
     private String bairro;
     @Column(columnDefinition = "VARCHAR(25)")

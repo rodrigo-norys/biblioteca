@@ -23,16 +23,24 @@ public class ClienteServico {
         return clienteRepositorio.findAll();
     }
 
+    // Verifica se o valor retornado pode virar um INT.
+    private boolean seNumerico(String telefone) {
+        try {
+            Integer.parseInt(telefone);
+            return true;
+        } catch (NumberFormatException exception) {
+            return false;
+        }
+    }
+
     // Método para cadastrar clientes.
     public ResponseEntity<?> cadastrarClientes(ClienteModelo clienteModelo) {
         if (clienteModelo.getNome().equals("")) {
             respostaModelo.setMensagem("O nome precisa ser preenchido!");
         } else if (clienteModelo.getSobrenome().equals("")) {
             respostaModelo.setMensagem("O sobrenome precisa ser preenchido!");
-        } else if (clienteModelo.getTelefone() == 0) {
-            respostaModelo.setMensagem("O telefone precisa ser preenchido!");
-        } else if (clienteModelo.getTelefone() == 000000) {
-            respostaModelo.setMensagem("Digite apenas números nesse campo!");
+        } else if (clienteModelo.getTelefone() == "" || !seNumerico(clienteModelo.getTelefone())) {
+            respostaModelo.setMensagem("Preencha o telefone corretamente!");
         } else if (clienteModelo.getBairro().equals("")) {
             respostaModelo.setMensagem("O bairro precisa ser preenchido!");
         } else if (clienteModelo.getRua().equals("")) {
@@ -49,14 +57,14 @@ public class ClienteServico {
             respostaModelo.setMensagem("O nome precisa ser preenchido!");
         } else if (clienteModelo.getSobrenome().equals("")) {
             respostaModelo.setMensagem("O sobrenome precisa ser preenchido!");
-        } else if (clienteModelo.getTelefone() == 0) {
-            respostaModelo.setMensagem("O telefone precisa ser preenchido!");
+        } else if (clienteModelo.getTelefone() == "" || !seNumerico(clienteModelo.getTelefone())) {
+            respostaModelo.setMensagem("O telefone precisa ser preenchido apenas com números!");
         } else if (clienteModelo.getBairro().equals("")) {
             respostaModelo.setMensagem("O bairro precisa ser preenchido!");
         } else if (clienteModelo.getRua().equals("")) {
             respostaModelo.setMensagem("A rua precisa ser preenchida!");
         } else {
-            return new ResponseEntity<ClienteModelo>(clienteRepositorio.save(clienteModelo), HttpStatus.OK);
+            return new ResponseEntity<ClienteModelo>(clienteRepositorio.save(clienteModelo), HttpStatus.CREATED);
         }
         return new ResponseEntity<RespostaModelo>(respostaModelo, HttpStatus.BAD_REQUEST);
     }
